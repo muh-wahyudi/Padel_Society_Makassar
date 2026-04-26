@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Society Makassar - Home</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header">
+        <header>
+            <div class="container header-wrap">
+                <a href="index.html" class="logo">Padel<span> Society</span> <span class="logo-city">Makassar</span></a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="sewa-lapangan.html">Sewa Lapangan</a>
+                    <a href="my-booking.html">My Booking</a>
+                    <a href="sewa-lapangan.html" class="book-cta">Book Now</a>
+                    <div class="user-menu">
+                        <a href="login.html" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </div>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="home-container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="hero-title">Book Padel Court <br>in Makassar Instantly</h1>
+            <p class="hero-sub">Booking lapangan padel dengan cepat dan mudah secara online.</p>
+            
+            <!-- Search Bar -->
+            <div class="search-wrapper">
+                <div class="search-card">
+                    <div class="search-item" style="position: relative;">
+                        <i class="fas fa-search"></i> 
+                        <input type="text" placeholder="Cari nama lapangan..." id="searchCourt" autocomplete="off">
+                        <div class="suggestions-dropdown" id="courtSuggestions"></div>
+                    </div>
+                    
+                    <div class="search-item">
+                        <i class="fas fa-map-pin"></i> 
+                        <input type="text" placeholder="Cari lokasi..." id="searchLocation" list="locationOptions" autocomplete="off">
+                        <datalist id="locationOptions">
+                            <option value="Boulevard"></option>
+                            <option value="Panakkukang"></option>
+                            <option value="Tamalanrea"></option>
+                            <option value="Antang"></option>
+                        </datalist>
+                    </div>
+                    
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fas fa-search"></i> Cari
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Courts Section -->
+        <section class="featured-section">
+            <div class="section-header">
+                <h2 class="section-title">🔥 Lapangan Populer</h2>
+                <p class="section-subtitle">Lapangan paling diminati di Makassar</p>
+            </div>
+            <div class="featured-grid" id="featuredCourts">
+                <!-- Card 1 -->
+                <div class="court-card" data-id="1">
+                    <div class="court-img">
+                        <img src="uploads/courts/Lapangan A.jpg" alt="Lapangan A">
+                        <span class="available-badge">✓ Tersedia</span>
+                    </div>
+                    <div class="court-content">
+                        <h3>Lapangan A</h3>
+                        <div class="price">Rp 150.000/jam</div>
+                        <div class="meta">
+                            <i class="fas fa-map-marker-alt"></i> Makassar
+                            <i class="fas fa-star" style="color: #f1c40f; margin-left: 0.5rem;"></i> 4.5
+                        </div>
+                        <a href="detail-lapangan.html" class="btn btn-outline" style="width:100%; margin-top:0.8rem;">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="court-card" data-id="2">
+                    <div class="court-img">
+                        <img src="uploads/courts/Lapangan B.jpg" alt="Lapangan B">
+                        <span class="available-badge">✓ Tersedia</span>
+                    </div>
+                    <div class="court-content">
+                        <h3>Lapangan B</h3>
+                        <div class="price">Rp 180.000/jam</div>
+                        <div class="meta">
+                            <i class="fas fa-map-marker-alt"></i> Makassar
+                            <i class="fas fa-star" style="color: #f1c40f; margin-left: 0.5rem;"></i> 4.8
+                        </div>
+                        <a href="detail-lapangan.html" class="btn btn-outline" style="width:100%; margin-top:0.8rem;">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="court-card" data-id="3">
+                    <div class="court-img">
+                        <img src="uploads/courts/Lapangan C.jpg" alt="Lapangan C">
+                        <span class="available-badge">✓ Tersedia</span>
+                    </div>
+                    <div class="court-content">
+                        <h3>Lapangan C</h3>
+                        <div class="price">Rp 200.000/jam</div>
+                        <div class="meta">
+                            <i class="fas fa-map-marker-alt"></i> Makassar
+                            <i class="fas fa-star" style="color: #f1c40f; margin-left: 0.5rem;"></i> 4.9
+                        </div>
+                        <a href="detail-lapangan.html" class="btn btn-outline" style="width:100%; margin-top:0.8rem;">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-section">
+            <div class="section-header">
+                <h2 class="section-title">Kenapa Pilih Kami</h2>
+                <p class="section-subtitle">Kemudahan booking lapangan padel</p>
+            </div>
+            <div class="why-grid">
+                <div class="why-card">
+                    <i class="fas fa-bolt why-icon"></i>
+                    <h3>Booking Cepat</h3>
+                    <p>Tanpa chat admin, real-time, langsung dapat konfirmasi</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-lock why-icon"></i>
+                    <h3>Pembayaran Aman</h3>
+                    <p>QRIS, transfer bank, e-wallet, semua terenkripsi</p>
+                </div>
+                <div class="why-card">
+                    <i class="fas fa-info-circle why-icon"></i>
+                    <h3>Informasi Lengkap</h3>
+                    <p>Harga, fasilitas, lokasi, dan review dari pemain</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-section">
+            <div class="section-header">
+                <h2 class="section-title">Cara Booking</h2>
+                <p class="section-subtitle">4 langkah mudah booking lapangan</p>
+            </div>
+            <div class="step-grid">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Pilih Lapangan</h3>
+                    <p>Cari lapangan sesuai lokasi & jadwal</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Pilih Jadwal</h3>
+                    <p>Tentukan tanggal & jam main</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Bayar</h3>
+                    <p>Transfer atau e-wallet, cepat & aman</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">4</div>
+                    <h3>Main</h3>
+                    <p>Datang dan nikmati permainan</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Methods Section -->
+        <section class="payment-section">
+            <div class="payment-header">
+                <h2>Metode Pembayaran</h2>
+                <p>Pilih metode yang paling nyaman untuk Anda</p>
+            </div>
+            <div class="payment-icons-large">
+                <i class="fas fa-qrcode" title="QRIS"></i>
+                <i class="fas fa-university" title="Transfer Bank"></i>
+                <i class="fas fa-wallet" title="E-Wallet"></i>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2 class="section-title">Pertanyaan Umum</h2>
+                <p class="section-subtitle">Yang sering ditanyakan tentang booking lapangan</p>
+            </div>
+            <div class="faq-card">
+                <details>
+                    <summary>Bagaimana cara booking lapangan?</summary>
+                    <p>Pilih lapangan, pilih tanggal dan jam, isi data, lakukan pembayaran. Konfirmasi dikirim via WhatsApp.</p>
+                </details>
+                <details>
+                    <summary>Apakah bisa refund jika booking dibatalkan?</summary>
+                    <p>Pembatalan H-1 refund 50%. Pembatalan di hari H tidak dapat refund.</p>
+                </details>
+                <details>
+                    <summary>Metode pembayaran apa saja yang tersedia?</summary>
+                    <p>Transfer Bank, QRIS, E-Wallet (GoPay, OVO, Dana).</p>
+                </details>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Siap Main Padel?</h2>
+            <p>Booking sekarang dan dapatkan pengalaman bermain padel terbaik di Makassar</p>
+            <div class="cta-buttons">
+                <a href="sewa-lapangan.html" class="btn btn-neon">
+                    <i class="fas fa-calendar-check"></i> Booking Sekarang
+                </a>
+                <a href="contact.html" class="btn btn-outline">
+                    <i class="fas fa-headset"></i> Hubungi Kami
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer">
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <p>Padel Society Makassar memudahkan booking lapangan padel secara online.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-phone"></i> 0811-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@padelmakassar.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Makassar</p>
+                </div>
+                <div class="footer-col payment-icons">
+                    <h5>Payment Methods</h5>
+                    <i class="fas fa-qrcode"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fas fa-wallet"></i>
+                </div>
+            </div>
+            <div class="container copyright">
+                © 2025 Padel Society Makassar. All rights reserved.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

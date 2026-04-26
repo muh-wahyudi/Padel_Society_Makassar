@@ -1,0 +1,362 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Society Makassar - Detail Lapangan</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- GLightbox CSS - Gunakan CDN yang sudah diizinkan -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/css/glightbox.min.css" rel="stylesheet">
+    
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="css/detail-lapangan.css">
+<style>
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-direction: column;
+            z-index: 1000;
+        }
+        
+        .nav-menu.active {
+            display: flex;
+        }
+        
+        .nav-menu a {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-menu .user-menu {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .mobile-menu {
+            display: block !important;
+        }
+    }
+    
+    @media (min-width: 769px) {
+        .nav-menu {
+            display: flex !important;
+        }
+        
+        .mobile-menu {
+            display: none !important;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header">
+        <header>
+            <div class="container header-wrap">
+                <a href="index.html" class="logo">Padel<span> Society</span> <span class="logo-city">Makassar</span></a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html" class="">Home</a>
+                    <a href="sewa-lapangan.html" class="">Sewa Lapangan</a>
+                    <a href="my-booking.html" class="">My Booking</a>
+                    <a href="sewa-lapangan.html" class="book-cta">Book Now</a>
+                    <div class="user-menu">
+                        
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </a>
+            
+                    </div>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="container">
+        <div class="detail-page" id="detailPage">
+        <h1 class="page-title">Lapangan A</h1>
+        
+        <!-- Gallery Slider dengan GLightbox -->
+        <div class="detail-gallery">
+            <div class="gallery-container">
+                <div class="gallery-wrapper" id="galleryWrapper" style="transform: translateX(0%);">
+                    
+                <div class="gallery-slide">
+                    <a href="/uploads/courts/Lapangan A.jpg" class="glightbox">
+                        <img src="/uploads/courts/Lapangan A.jpg" alt="Lapangan A">
+                    </a>
+                </div>
+            
+                <div class="gallery-slide">
+                    <a href="/uploads/courts/Lapangan B.jpg" class="glightbox">
+                        <img src="/uploads/courts/Lapangan B.jpg" alt="Lapangan B">
+                    </a>
+                </div>
+            
+                <div class="gallery-slide">
+                    <a href="/uploads/courts/Lapangan C.jpg" class="glightbox">
+                        <img src="/uploads/courts/Lapangan C.jpg" alt="Lapangan C">
+                    </a>
+                </div>
+            
+                </div>
+                <button class="gallery-btn prev" id="galleryPrev" fdprocessedid="wm5mje"><i class="fas fa-chevron-left"></i></button>
+                <button class="gallery-btn next" id="galleryNext" fdprocessedid="bc8ijj"><i class="fas fa-chevron-right"></i></button>
+                <div class="gallery-dots" id="galleryDots"><button class="gallery-dot" fdprocessedid="pinwcg"></button><button class="gallery-dot" fdprocessedid="jtuy7"></button><button class="gallery-dot active" fdprocessedid="3ejx2"></button><button class="gallery-dot" fdprocessedid="ulj8in"></button><button class="gallery-dot" fdprocessedid="bwjedm"></button></div>
+                <div class="gallery-counter" id="galleryCounter">
+                    <i class="fas fa-images"></i> <span id="currentSlide">3</span> / <span id="totalSlides">5</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="detail-info-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-info-circle"></i> Informasi Lapangan</h3>
+                <div class="price-display">Rp 150.000<span>/jam</span></div>
+                <div class="rating-display">
+                    <span class="stars"><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star-half-alt" style="color: #f1c40f;"></i></span>
+                    <span><strong>4.5</strong> (2 ulasan)</span>
+                </div>
+                <div class="location-info">
+                    <i class="fas fa-map-marker-alt"></i> MAKASSAR
+                </div>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-list-ul"></i> Fasilitas</h3>
+                <div class="facility-tags">
+                    <span class="facility-tag">parkir</span><span class="facility-tag">wifi</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="description-card">
+            <h3><i class="fas fa-align-left"></i> Deskripsi</h3>
+            <p>Ini adalah lapangan padel kelas premium dengan pencahayaan yang sangat baik dan</p>
+            <p>permukaan berkualitas tinggi, cocok untuk permainan santai maupun kompetitif.</p>
+            <p>Nikmati pengalaman pemesanan yang nyaman dengan berbagai fasilitas lengkap.</p>
+        </div>
+        
+        <!-- Slot Selection -->
+        <div class="slot-section">
+            <div class="slot-header">
+                <h3><i class="far fa-calendar-alt"></i> Pilih Jadwal</h3>
+                <div class="slot-date-picker">
+                    <label for="slotDate">Tanggal:</label>
+                    <input type="date" class="slot-date" id="slotDate" value="2026-04-24" min="2026-04-24" max="2026-04-25">
+                </div>
+            </div>
+            
+            <div class="availability-info" id="availabilityInfo">
+            <i class="fas fa-calendar-check"></i>
+            <span>Tanggal 24/04/2026 (Hari Ini) - Tersedia <strong>3</strong> dari <strong>10</strong> slot</span>
+            <span class="current-time">Sekarang jam 17:33</span>
+        </div>
+            
+            <div class="slot-grid" id="slotContainer">
+                    <div class="slot disabled expired" data-slot="00:00-01:00" data-available="false" data-reason="expired" disabled>
+                        07:00-08:00 (Terbooking)
+                    </div>
+                
+                    <div class="slot disabled expired" data-slot="02:00-03:00" data-available="false" data-reason="expired" disabled>
+                        10:00-11:00 (Lewat)
+                    </div>
+                
+                    <div class="slot disabled expired" data-slot="03:00-04:00" data-available="false" data-reason="expired" disabled>
+                        11:00-12:00 (Lewat)
+                    </div>
+                
+                    <div class="slot disabled expired" data-slot="06:00-07:00" data-available="false" data-reason="expired" disabled>
+                        14:00-15:00 (Lewat)
+                    </div>
+                
+                    <div class="slot disabled expired" data-slot="07:00-08:00" data-available="false" data-reason="expired" disabled>
+                        15:00-16:00 (Lewat)
+                    </div>
+                
+                    <div class="slot disabled expired" data-slot="08:00-09:00" data-available="false" data-reason="expired" disabled>
+                        16:00-17:00 (Lewat)
+                    </div>
+                
+                    <div class="slot disabled expired" data-slot="09:00-10:00" data-available="false" data-reason="expired" disabled>
+                        17:00-18:00 (Lewat)
+                    </div>
+                
+                    <div class="slot" data-slot="11:00-12:00" data-available="true" data-reason="available">
+                        19:00-20:00
+                    </div>
+                
+                    <div class="slot" data-slot="12:00-13:00" data-available="true" data-reason="available">
+                        20:00-21:00
+                    </div>
+                
+                    <div class="slot" data-slot="13:00-14:00" data-available="true" data-reason="available">
+                        21:00-22:00
+                    </div>
+                </div>
+            
+            <div class="total-price-display" id="totalPriceDisplay" style="display: none;">
+                <span>Total Harga:</span>
+                <span id="totalPrice">Rp 0</span>
+            </div>
+            
+            <button class="book-this-btn" id="bookThisBtn" onclick="window.location.href='booking.html'">
+                <i class="fas fa-calendar-check"></i> Book Now (<span id="selectedCountBtn">0</span> jam)
+            </button>
+        </div>
+        
+        <div class="reviews-section">
+            <h3><i class="fas fa-star"></i> Ulasan</h3>
+            <div class="reviews-grid" id="reviewsContainer">
+                
+            <div class="review-card" data-review-id="2">
+                <div class="review-header">
+                    <div class="reviewer-avatar">1</div>
+                    <div class="reviewer-info">
+                        <h4>user1</h4>
+                        <div class="review-rating"><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="far fa-star" style="color: #ddd;"></i></div>
+                    </div>
+                    <div class="review-date">22 Maret 2026</div>
+                </div>
+                
+                <p class="review-text">niceee</p>
+                
+                
+                
+                
+            </div>
+        
+            <div class="review-card" data-review-id="1">
+                <div class="review-header">
+                    <div class="reviewer-avatar">2</div>
+                    <div class="reviewer-info">
+                        <h4>user2</h4>
+                        <div class="review-rating"><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i><i class="fas fa-star" style="color: #f1c40f;"></i></div>
+                    </div>
+                    <div class="review-date">18 Maret 2026</div>
+                </div>
+                
+                <p class="review-text">bagus</p>
+                
+                
+                
+                
+            </div>
+        
+            </div>
+        </div>
+    </div>
+    </main>
+
+    <!-- Modal Balas Review (untuk owner) -->
+    <div class="modal" id="replyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <i class="fas fa-reply"></i>
+                    Balas Review
+                </h2>
+                <button class="modal-close" onclick="closeReplyModal()">×</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Review Asli -->
+                <div style="background: #f8fafc; padding: 1.2rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid #0a4c7a;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem;">
+                        <div style="width: 40px; height: 40px; background: #0a4c7a; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                            <span id="replyCustomerName">A</span>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">Customer</div>
+                            <div style="color: #f39c12; font-size: 0.9rem;" id="replyRating">★★★★★</div>
+                        </div>
+                    </div>
+                    <p style="color: #1e2b37; margin: 0; font-style: italic; background: white; padding: 0.8rem; border-radius: 8px;" id="replyOriginalText">
+                        "Review customer akan tampil di sini"
+                    </p>
+                </div>
+                
+                <form id="replyForm" onsubmit="submitReply(event)">
+                    <input type="hidden" id="replyReviewId">
+                    
+                    <div class="form-group">
+                        <label>
+                            <i class="fas fa-comment"></i>
+                            Balasan Anda
+                        </label>
+                        <textarea id="replyText" rows="4" class="form-control" placeholder="Tulis balasan untuk review ini..."></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-outline" onclick="closeReplyModal()">
+                            <i class="fas fa-times"></i> Batal
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Kirim Balasan
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Component -->
+    <div id="footer">
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <p>Padel Society Makassar memudahkan booking lapangan padel secara online.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-phone"></i> 0811-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@padelmakassar.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Makassar</p>
+                </div>
+                <div class="footer-col payment-icons">
+                    <h5>Payment Methods</h5>
+                    <i class="fas fa-qrcode"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fas fa-wallet"></i>
+                </div>
+            </div>
+            <div class="container copyright">
+                © 2025 Padel Society Makassar. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <!-- GLightbox JS - Gunakan CDN yang sudah diizinkan -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/glightbox/3.2.0/js/glightbox.min.js"></script>
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span>
+</body>
+</html>

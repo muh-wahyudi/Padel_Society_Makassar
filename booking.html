@@ -1,0 +1,232 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Society Makassar - Booking</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="css/booking.css">
+<style>
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            flex-direction: column;
+            z-index: 1000;
+        }
+        
+        .nav-menu.active {
+            display: flex;
+        }
+        
+        .nav-menu a {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .nav-menu a:last-child {
+            border-bottom: none;
+        }
+        
+        .nav-menu .user-menu {
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .mobile-menu {
+            display: block !important;
+        }
+    }
+    
+    @media (min-width: 769px) {
+        .nav-menu {
+            display: flex !important;
+        }
+        
+        .mobile-menu {
+            display: none !important;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header">
+        <header>
+            <div class="container header-wrap">
+                <a href="index.html" class="logo">Padel<span> Society</span> <span class="logo-city">Makassar</span></a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="sewa-lapangan.html">Sewa Lapangan</a>
+                    <a href="my-booking.html">My Booking</a>
+                    <a href="sewa-lapangan.html" class="book-cta">Book Now</a>
+                    <div class="user-menu">
+                        <button class="user-btn">
+                            <i class="fas fa-user-circle"></i>
+                            <span>user1</span>
+                            <i class="fas fa-chevron-down"></i><div class="dropdown-content">
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="my-booking.html"><i class="fas fa-calendar-check"></i> My Booking</a>
+                            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="container">
+        <h1 class="page-title">Booking Lapangan</h1>
+        
+        <div class="booking-container" id="bookingContainer">
+            <div class="booking-steps">
+                <div class="step-item active"><div class="step-number">1</div><div class="step-label">Pilih Jadwal</div></div>
+                <div class="step-item active"><div class="step-number">2</div><div class="step-label">Isi Data</div></div>
+                <div class="step-item"><div class="step-number">3</div><div class="step-label">Pembayaran</div></div>
+                <div class="step-item"><div class="step-number">4</div><div class="step-label">Selesai</div></div>
+            </div>
+            
+            <div class="booking-layout">
+                <div class="booking-form">
+                    <h2>Data Pemesan</h2>
+                    
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label><i class="far fa-calendar"></i> Tanggal Main</label>
+                            <input type="text" class="form-control" value="26 April 2026 (Hari Ini)" readonly>
+                            <input type="hidden" value="2026-04-26">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="far fa-clock"></i> Jam Main</label>
+                            <input type="text" class="form-control" value="19:00-20:00, 20:00-21:00" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-hourglass-half"></i> Total Jam</label>
+                            <input type="text" class="form-control" value="2 Jam" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="terms-checkbox">
+                        <label>
+                            <input type="checkbox"> 
+                            Saya menyetujui <a href="terms.html" target="_blank">Syarat &amp; Ketentuan</a>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="booking-summary">
+                    <h3><i class="fas fa-receipt"></i> Ringkasan Booking</h3>
+                    
+                    <div class="summary-item">
+                        <span class="summary-label">Lapangan</span>
+                        <strong class="summary-value">Lapangan A</strong>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-label">Tanggal</span>
+                        <strong class="summary-value">26 April 2026 (Hari Ini)</strong>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-label">Jam</span>
+                        <strong class="summary-value">19:00-20:00, 20:00-21:00</strong>
+                    </div>
+                    
+                    <div class="summary-item">
+                        <span class="summary-label">Durasi</span>
+                        <strong class="summary-value">2 Jam</strong>
+                    </div>
+                    
+                    <div class="price-breakdown">
+                        <div class="price-row">
+                            <span>Harga per jam</span>
+                            <span>Rp 150.000</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Total jam</span>
+                            <span>2 jam</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Subtotal</span>
+                            <span>Rp 300.000</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Biaya layanan</span>
+                            <span>Rp 30.000</span>
+                        </div>
+                        <div class="price-row total">
+                            <span>Total</span>
+                            <span>Rp 330.000</span>
+                        </div>
+                    </div>
+                    
+                    <a href="Pembayaran/checkout.html" class="btn btn-primary continue-btn" style="display: block; text-align: center; text-decoration: none;">
+                        Lanjut ke Pembayaran
+                    </a>
+                    
+                    <p style="font-size:0.8rem; color:#95a5a6; margin-top:1rem; text-align:center;">
+                        <i class="fas fa-lock"></i> Data Anda aman dan terenkripsi
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Component -->
+    <div id="footer">
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <p>Padel Society Makassar memudahkan booking lapangan padel secara online.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-phone"></i> 0811-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@padelmakassar.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Makassar</p>
+                </div>
+                <div class="footer-col payment-icons">
+                    <h5>Payment Methods</h5>
+                    <i class="fas fa-qrcode"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fas fa-wallet"></i>
+                </div>
+            </div>
+            <div class="container copyright">
+                © 2025 Padel Society Makassar. All rights reserved.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
