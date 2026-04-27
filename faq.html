@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Society Makassar - FAQ</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Page Specific CSS -->
+    <link rel="stylesheet" href="css/faq.css">
+</head>
+<body>
+    <!-- Header Component -->
+        <div id="header">
+        <header>
+            <div class="container header-wrap">
+                <a href="index.html" class="logo">Padel<span> Society</span> <span class="logo-city">Makassar</span></a>
+                <div class="nav-menu" id="navMenu">
+                    <a href="index.html">Home</a>
+                    <a href="sewa-lapangan.html">Sewa Lapangan</a>
+                    <a href="my-booking.html">My Booking</a>
+                    <a href="sewa-lapangan.html" class="book-cta">Book Now</a>
+                    <div class="user-menu">
+                        <a href="login.html" class="login-btn">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </div>
+                </div>
+                <div class="mobile-menu" id="mobileMenu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <main class="faq-page">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fas fa-chevron-right"></i>
+            <span>FAQ</span>
+        </div>
+
+        <!-- Search Section -->
+        <section class="faq-search">
+            <h2>Ada Pertanyaan?</h2>
+            <p>Cari pertanyaan yang sering diajukan atau hubungi kami langsung</p>
+            
+            <div class="search-box">
+                <input type="text" id="searchFAQ" placeholder="Cari pertanyaan..." autocomplete="off">
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> Cari
+                </button>
+                <div class="search-results" id="searchResults" style="display: none;"></div>
+            </div>
+        </section>
+
+        <!-- Category Tabs -->
+        <div class="faq-categories">
+            <button class="category-tab active" data-category="all">Semua</button>
+            <button class="category-tab" data-category="booking">Booking</button>
+            <button class="category-tab" data-category="payment">Pembayaran</button>
+            <button class="category-tab" data-category="lapangan">Lapangan</button>
+        </div>
+
+        <!-- FAQ Grid - FIXED: judul tidak terhalangi -->
+        <div class="faq-grid" id="faqGrid">
+            <!-- Booking Category -->
+            <div class="faq-category-container" data-category="booking">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-calendar-check"></i>
+                        Booking
+                    </h2>
+                    <p>Informasi seputar proses booking lapangan</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Bagaimana cara booking lapangan?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Berikut langkah-langkah booking lapangan:</p>
+                            <ul>
+                                <li>Pilih lapangan yang diinginkan di halaman Sewa Lapangan</li>
+                                <li>Pilih tanggal dan jam yang tersedia</li>
+                                <li>Isi data diri (nama, nomor HP, email)</li>
+                                <li>Pilih metode pembayaran</li>
+                                <li>Lakukan pembayaran dalam waktu 15 menit</li>
+                                <li>Booking akan dikonfirmasi via WhatsApp</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Apakah bisa booking untuk orang lain?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ya, bisa. Silakan isi data pemain yang akan menggunakan lapangan pada form booking. Pastikan nomor HP yang didaftarkan aktif untuk menerima konfirmasi.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Berapa lama proses booking?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Proses booking hanya membutuhkan waktu kurang dari 5 menit. Setelah pembayaran berhasil, Anda akan langsung mendapatkan konfirmasi via WhatsApp.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Bisa booking berapa jam maksimal?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Anda bisa booking hingga 3 jam berturut-turut dalam satu transaksi. Jika ingin lebih, silakan booking terpisah.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Category -->
+            <div class="faq-category-container" data-category="payment">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-credit-card"></i>
+                        Pembayaran
+                    </h2>
+                    <p>Informasi metode pembayaran dan refund</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Metode pembayaran apa saja yang tersedia?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kami menerima beberapa metode pembayaran:</p>
+                            <ul>
+                                <li><strong>Transfer Bank</strong> (BCA, Mandiri, BRI, BNI)</li>
+                                <li><strong>QRIS</strong> (GoPay, OVO, Dana, LinkAja, ShopeePay)</li>
+                                <li><strong>E-Wallet</strong> (GoPay, OVO, Dana)</li>
+                                <li><strong>Kartu Kredit</strong> (Visa, Mastercard)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Apakah bisa refund jika booking dibatalkan?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Kebijakan refund berdasarkan waktu pembatalan:</p>
+                            <ul>
+                                <li><strong>> 24 jam</strong> sebelum main: refund 100%</li>
+                                <li><strong>1-24 jam</strong> sebelum main: refund 50%</li>
+                                <li><strong>< 1 jam</strong> sebelum main: tidak bisa refund</li>
+                                <li>Booking <strong>Pending</strong> (belum bayar): refund 100%</li>
+                            </ul>
+                            <p>Refund akan diproses dalam 3-5 hari kerja ke rekening asal.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Berapa lama batas waktu pembayaran?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Anda memiliki waktu <strong>15 menit</strong> untuk menyelesaikan pembayaran setelah booking. Jika melebihi batas waktu, booking akan otomatis expired dan slot akan dilepas untuk user lain.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Apakah ada biaya tambahan?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Tidak ada biaya tambahan atau biaya layanan. Harga yang tertera adalah harga final yang harus dibayar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lapangan Category -->
+            <div class="faq-category-container" data-category="lapangan">
+                <div class="category-header">
+                    <h2>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Lapangan
+                    </h2>
+                    <p>Informasi fasilitas dan venue</p>
+                </div>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Apakah ada perlengkapan padel yang disediakan?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Setiap venue menyediakan raket dan bola untuk disewa dengan harga mulai dari Rp 25.000 - Rp 50.000 per set. Namun kami sarankan membawa perlengkapan sendiri untuk kenyamanan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Berapa lama durasi booking?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Minimal booking 1 jam, maksimal 3 jam per sesi. Anda bisa memilih beberapa jam sekaligus dalam satu transaksi.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Fasilitas apa saja yang tersedia di lapangan?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Fasilitas umum di setiap venue:</p>
+                            <ul>
+                                <li>Parkir luas</li>
+                                <li>Kamar mandi & shower</li>
+                                <li>Musholla</li>
+                                <li>Kantin / Kafe</li>
+                                <li>Ruang ganti</li>
+                                <li>Area tunggu</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Apakah bisa booking untuk event atau turnamen?
+                            <i class="fas fa-plus-circle"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Ya, untuk booking khusus event atau turnamen dengan jumlah banyak, silakan hubungi kami via WhatsApp atau email untuk mendapatkan penawaran khusus.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Questions Section -->
+        <section class="popular-section">
+            <h2>Pertanyaan Populer</h2>
+            <div class="popular-grid">
+                <div class="popular-card">
+                    <div class="popular-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Batas Pembayaran</h3>
+                    <p>15 menit setelah booking, jika tidak dibayar akan expired</p>
+                    <a href="#" class="btn btn-outline">Selengkapnya</a>
+                </div>
+                
+                <div class="popular-card">
+                    <div class="popular-icon">
+                        <i class="fas fa-undo-alt"></i>
+                    </div>
+                    <h3>Refund</h3>
+                    <p>Refund 100% jika batalkan >24 jam sebelum main</p>
+                    <a href="#" class="btn btn-outline">Selengkapnya</a>
+                </div>
+                
+                <div class="popular-card">
+                    <div class="popular-icon">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                    <h3>Sewa Perlengkapan</h3>
+                    <p>Raket & bola tersedia mulai Rp 25.000</p>
+                    <a href="#" class="btn btn-outline">Selengkapnya</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Still Have Questions -->
+        <section class="contact-section">
+            <h2>Masih Punya Pertanyaan?</h2>
+            <p>Tim customer service kami siap membantu Anda 24/7</p>
+            <div class="contact-buttons">
+                <a href="contact.html" class="btn btn-neon">
+                    <i class="fas fa-headset"></i> Hubungi Kami
+                </a>
+                <a href="https://wa.me/6287846327517" class="btn btn-outline">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component -->
+        <div id="footer">
+        <footer>
+            <div class="container footer-grid">
+                <div class="footer-col">
+                    <h5>About</h5>
+                    <p>Padel Society Makassar memudahkan booking lapangan padel secara online.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Links</h5>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faq.html">FAQ</a>
+                    <a href="terms.html">Terms &amp; Conditions</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Contact</h5>
+                    <p><i class="fas fa-phone"></i> 0811-1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> info@padelmakassar.id</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Makassar</p>
+                </div>
+                <div class="footer-col payment-icons">
+                    <h5>Payment Methods</h5>
+                    <i class="fas fa-qrcode"></i>
+                    <i class="fas fa-university"></i>
+                    <i class="fas fa-wallet"></i>
+                </div>
+            </div>
+            <div class="container copyright">
+                © 2026 Padel Society Makassar. All rights reserved.
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

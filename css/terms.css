@@ -1,0 +1,264 @@
+/* css/terms.css - CSS khusus untuk halaman Terms & Conditions */
+
+.terms-page {
+    padding: 2rem 0;
+}
+
+/* Header */
+.terms-header {
+    background: linear-gradient(135deg, var(--primary) 0%, #0c3f62 100%);
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 32px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.terms-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.terms-header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.terms-header .last-updated {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Table of Contents */
+.toc-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 32px;
+    border: 1px solid var(--border);
+    margin-bottom: 3rem;
+}
+
+.toc-section h2 {
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.toc-section h2 i {
+    color: var(--primary);
+}
+
+.toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.toc-item {
+    padding: 0.8rem 1.2rem;
+    background: var(--gray-bg);
+    border-radius: 40px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.toc-item:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateX(5px);
+}
+
+/* Terms Content */
+.terms-content {
+    background: white;
+    border-radius: 32px;
+    border: 1px solid var(--border);
+    padding: 3rem;
+    margin: 3rem 0;
+    box-shadow: 0 20px 40px -12px rgba(0,0,0,0.08);
+}
+
+.terms-section {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.terms-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.terms-section h2 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.terms-section h3 {
+    color: var(--text);
+    margin: 1.5rem 0 1rem;
+}
+
+.terms-section p {
+    color: #4a5a6a;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.terms-section ul, 
+.terms-section ol {
+    margin: 1rem 0 1rem 2rem;
+    color: #4a5a6a;
+    line-height: 1.8;
+}
+
+.terms-section li {
+    margin-bottom: 0.5rem;
+}
+
+.terms-section .note {
+    background: var(--primary-light);
+    padding: 1.5rem;
+    border-radius: 24px;
+    margin: 1.5rem 0;
+    border-left: 4px solid var(--primary);
+}
+
+.terms-section .note p {
+    margin-bottom: 0;
+}
+
+/* Table */
+.terms-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.terms-table th {
+    background: var(--primary);
+    color: white;
+    padding: 1rem;
+    text-align: left;
+}
+
+.terms-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.terms-table tr:last-child td {
+    border-bottom: none;
+}
+
+.terms-table tr:hover td {
+    background: var(--gray-bg);
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(145deg, #f0f6fb 0%, white 100%);
+    padding: 2rem;
+    border-radius: 24px;
+    margin: 2rem 0;
+    border: 2px solid var(--primary-light);
+}
+
+.highlight-box h3 {
+    color: var(--primary);
+    margin-top: 0;
+}
+
+/* Agreement Section */
+.agreement-section {
+    background: var(--gray-bg);
+    padding: 2rem;
+    border-radius: 32px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.agreement-section p {
+    margin-bottom: 1.5rem;
+    color: #4a5a6a;
+}
+
+.agreement-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+/* Print Styles */
+@media print {
+    .toc-section,
+    .agreement-section,
+    .btn {
+        display: none;
+    }
+    
+    .terms-content {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .terms-header {
+        padding: 2rem 1rem;
+    }
+    
+    .terms-header h1 {
+        font-size: 2rem;
+    }
+    
+    .terms-content {
+        padding: 1.5rem;
+    }
+    
+    .terms-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .terms-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .agreement-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.terms-section {
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+.terms-section:nth-child(1) { animation-delay: 0.1s; }
+.terms-section:nth-child(2) { animation-delay: 0.2s; }
+.terms-section:nth-child(3) { animation-delay: 0.3s; }
+.terms-section:nth-child(4) { animation-delay: 0.4s; }
+.terms-section:nth-child(5) { animation-delay: 0.5s; }
+.terms-section:nth-child(6) { animation-delay: 0.6s; }

@@ -1,0 +1,280 @@
+/* css/about.css - CSS khusus untuk halaman About */
+
+.about-page {
+    padding: 2rem 0;
+}
+
+.about-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #0c3f62 100%);
+    color: white;
+    padding: 4rem 2rem;
+    border-radius: 32px;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.about-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Mission & Vision */
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.mv-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 32px;
+    border: 1px solid var(--border);
+    transition: transform 0.3s;
+}
+
+.mv-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -12px rgba(10,76,122,0.15);
+}
+
+.mv-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.mv-card h2 {
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.mv-card p {
+    color: #4a5a6a;
+    line-height: 1.8;
+}
+
+/* Values */
+.values-section {
+    margin: 4rem 0;
+}
+
+.values-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.value-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--neon-dark);
+    margin-bottom: 1rem;
+}
+
+.value-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.value-item p {
+    color: #5f6c7a;
+    font-size: 0.95rem;
+}
+
+/* Team Section */
+.team-section {
+    margin: 4rem 0;
+}
+
+.team-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.team-card {
+    background: white;
+    border-radius: 32px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -12px rgba(10,76,122,0.15);
+}
+
+.team-image {
+    height: 250px;
+    background: var(--primary-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--primary);
+}
+
+.team-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.team-info h3 {
+    margin-bottom: 0.3rem;
+}
+
+.team-info .position {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.team-info .bio {
+    color: #5f6c7a;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Stats Section */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin: 4rem 0;
+    padding: 3rem;
+    background: var(--gray-bg);
+    border-radius: 32px;
+}
+
+.stat-block {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #5f6c7a;
+    font-size: 1rem;
+}
+
+/* Timeline */
+.timeline-section {
+    margin: 4rem 0;
+}
+
+.timeline {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--primary-light);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-year {
+    width: 100px;
+    text-align: right;
+    padding-right: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.timeline-content {
+    width: calc(50% - 50px);
+    background: white;
+    padding: 1.5rem;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+}
+
+.timeline-content h4 {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .values-grid,
+    .team-grid,
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 60px;
+    }
+    
+    .timeline-year {
+        width: auto;
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .timeline-content {
+        width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .values-grid,
+    .team-grid,
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+}
