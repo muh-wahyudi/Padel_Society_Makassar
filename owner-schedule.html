@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Padel Society Makassar - Manajemen Jadwal</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Owner Layout */
+        .owner-body {
+            background: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .owner-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .owner-sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.02);
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .sidebar-header .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #0a4c7a;
+            text-decoration: none;
+        }
+        
+        .sidebar-header .logo span {
+            font-weight: 300;
+            color: #1e2b37;
+        }
+        
+        .owner-verification-status {
+            padding: 1rem 1.5rem;
+            margin: 0 1rem 1rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .owner-verification-status i.verified {
+            color: #2ecc71;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 1.5rem 0;
+        }
+        
+        .sidebar-nav .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            color: #5f6c7a;
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .sidebar-nav .nav-item i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .sidebar-nav .nav-item:hover {
+            background: #e2f0fa;
+            color: #0a4c7a;
+        }
+        
+        .sidebar-nav .nav-item.active {
+            background: #e2f0fa;
+            color: #0a4c7a;
+            font-weight: 600;
+        }
+        
+        .sidebar-nav .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #0a4c7a;
+        }
+        
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .owner-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .owner-info i {
+            font-size: 2rem;
+            color: #0a4c7a;
+        }
+        
+        .owner-name {
+            font-weight: 600;
+            color: #1e2b37;
+        }
+        
+        .owner-role {
+            font-size: 0.85rem;
+            color: #5f6c7a;
+        }
+        
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: #fee;
+            color: #e74c3c;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .logout-btn:hover {
+            background: #fdd;
+        }
+        
+        /* Main Content */
+        .owner-main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+        }
+        
+        .owner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .owner-header h1 {
+            font-size: 2rem;
+            color: #1e2b37;
+            margin: 0;
+        }
+        
+        /* Card Styles */
+        .schedule-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        
+        .schedule-card h2 {
+            margin-bottom: 1.5rem;
+            color: #0a4c7a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .schedule-card h2 i {
+            color: #0a4c7a;
+        }
+        
+        /* Form Styles */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-groupp {
+            margin-bottom: 1rem;
+            flex-direction: row;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #1e2b37;
+        }
+        
+        .form-group label i {
+            color: #0a4c7a;
+            margin-right: 0.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #0a4c7a;
+            box-shadow: 0 0 0 3px rgba(10,76,122,0.1);
+        }
+        
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            min-height: 44px;
+        }
+        
+        .btn-primary {
+            background: #0a4c7a;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #083b5e;
+            transform: translateY(-2px);
+        }
+        
+        .btn-success {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #27ae60;
+            transform: translateY(-2px);
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: #1e2b37;
+        }
+        
+        .btn-outlinee {
+            width: 50% !important;
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: #1e2b37;
+        }
+        
+        .btn-outline:hover {
+            background: #f8fafc;
+        }
+        
+        .btn-sm {
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+        }
+        
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+        
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .schedule-table th {
+            text-align: left;
+            padding: 1rem;
+            background: #f8fafc;
+            color: #5f6c7a;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .schedule-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: #1e2b37;
+        }
+        
+        .schedule-table tr:hover td {
+            background: #f8fafc;
+        }
+        
+        .badge {
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .badge.active {
+            background: #e8f5e9;
+            color: #2ecc71;
+        }
+        
+        .badge.inactive {
+            background: #fee;
+            color: #e74c3c;
+        }
+        
+        .action-btn {
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            min-height: 36px;
+        }
+        
+        .action-btn.edit {
+            background: #e2f0fa;
+            color: #0a4c7a;
+        }
+        
+        .action-btn.edit:hover {
+            background: #0a4c7a;
+            color: white;
+        }
+        
+        .action-btn.delete {
+            background: #fee;
+            color: #e74c3c;
+        }
+        
+        .action-btn.delete:hover {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #95a5a6;
+        }
+        
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 24px;
+            border: 2px dashed #e2e8f0;
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            color: #95a5a6;
+            margin-bottom: 1rem;
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .empty-state p {
+            color: #5f6c7a;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            color: #1e2b37;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            z-index: 3000;
+            display: none;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .toast.show {
+            display: flex;
+        }
+        
+        .toast.success {
+            background: #e8f5e9;
+            border-left: 4px solid #2ecc71;
+        }
+        
+        .toast.error {
+            background: #fee;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .toast i {
+            font-size: 1.2rem;
+        }
+        
+        .toast.success i {
+            color: #2ecc71;
+        }
+        
+        .toast.error i {
+            color: #e74c3c;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .owner-sidebar {
+                width: 80px;
+            }
+            
+            .sidebar-header .logo span,
+            .sidebar-nav .nav-item span,
+            .owner-info div,
+            .logout-btn span,
+            .owner-verification-status span {
+                display: none;
+            }
+            
+            .sidebar-nav .nav-item {
+                justify-content: center;
+                padding: 1rem;
+            }
+            
+            .owner-main {
+                margin-left: 80px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .owner-main {
+                padding: 1rem;
+            }
+            
+            .schedule-card {
+                padding: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .schedule-table th,
+            .schedule-table td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+            
+            .action-btn {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .schedule-table {
+                font-size: 0.85rem;
+            }
+            
+            .action-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+            
+            .badge {
+                padding: 0.2rem 0.6rem;
+                font-size: 0.7rem;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .btn:hover,
+            .action-btn:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body class="owner-body">
+    <div class="owner-container">
+        <!-- Sidebar -->
+        <aside class="owner-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Padel<span> Society</span> <span class="logo-city">Owner</span></div>
+            </div>
+            
+            <div class="owner-verification-status">
+                <i class="fas fa-check-circle verified"></i>
+                <span>Verified Owner</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="owner-dashboard.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="owner-courts.html" class="nav-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kelola Lapangan</span>
+                </a>
+                <a href="owner-schedule.html" class="nav-item active">
+                    <i class="fas fa-clock"></i>
+                    <span>Manajemen Jadwal</span>
+                </a>
+                <a href="owner-bookings.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manajemen Booking</span>
+                </a>
+                <a href="owner-earnings.html" class="nav-item">
+                    <i class="fas fa-wallet"></i>
+                    <span>Pendapatan</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="owner-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <div class="owner-name">Admin Padel</div>
+                        <div class="owner-role">Owner</div>
+                    </div>
+                </div>
+                <a href="login.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="owner-main">
+            <header class="owner-header">
+                <h1>Manajemen Jadwal</h1>
+                <span class="badge active"></span>
+            </header>
+
+            <!-- Add New Schedule Card -->
+            <div class="schedule-card">
+                <h2><i class="fas fa-plus-circle"></i> Tambah Slot Waktu Baru</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="courtSelect">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Pilih Lapangan
+                        </label>
+                        <select id="courtSelect" class="form-control">
+                            <option value="">-- Pilih Lapangan --</option>
+                            <option value="all">Semua Lapangan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="startTime">
+                            <i class="fas fa-hourglass-start"></i>
+                            Jam Mulai
+                        </label>
+                        <input type="time" id="startTime" class="form-control" value="08:00">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="endTime">
+                            <i class="fas fa-hourglass-end"></i>
+                            Jam Selesai
+                        </label>
+                        <input type="time" id="endTime" class="form-control" value="09:00">
+                    </div>
+                    
+                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                        <button class="btn btn-success" style="width: 100%;">
+                            <i class="fas fa-plus"></i> Tambah Slot
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current Schedules Card -->
+            <div class="schedule-card">
+                <h2><i class="fas fa-clock"></i> Daftar Slot Waktu Aktif</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="filterCourt">
+                            <i class="fas fa-filter"></i>
+                            Filter Lapangan
+                        </label>
+                        <select id="filterCourt" class="form-control">
+                            <option value="all">Semua Lapangan</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-groupp" style="display: flex; align-items: flex-end;">
+                        <button class="btn btn-outlinee" style="width: 100%;">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Lapangan</th>
+                                <th>Jam Mulai</th>
+                                <th>Jam Selesai</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTableBody">
+                <tr data-id="10">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>08:00</td>
+                    <td>09:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(10)" fdprocessedid="0hex2">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(10)" fdprocessedid="0hv7ej">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="4">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>10:00</td>
+                    <td>11:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(4)" fdprocessedid="64c56">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(4)" fdprocessedid="7y4ege">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="5">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>11:00</td>
+                    <td>12:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(5)" fdprocessedid="8x53k8">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(5)" fdprocessedid="jseeek">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="7">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>14:00</td>
+                    <td>15:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(7)" fdprocessedid="md3emr">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(7)" fdprocessedid="og299j">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="8">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>15:00</td>
+                    <td>16:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(8)" fdprocessedid="o09ob">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(8)" fdprocessedid="fxny0x">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="6">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>16:00</td>
+                    <td>17:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(6)" fdprocessedid="d159r4">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(6)" fdprocessedid="c2yvj">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="9">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>17:00</td>
+                    <td>18:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(9)" fdprocessedid="xu8vq">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(9)" fdprocessedid="9i3qds">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="1">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>19:00</td>
+                    <td>20:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(1)" fdprocessedid="uc4zy">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(1)" fdprocessedid="6tlncs">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="2">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>20:00</td>
+                    <td>21:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(2)" fdprocessedid="f32z1q">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(2)" fdprocessedid="cgbada">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            
+                <tr data-id="3">
+                    <td><strong>Lapangan A</strong></td>
+                    <td>21:00</td>
+                    <td>22:00</td>
+                    <td>
+                        <span class="badge active">
+                            Aktif
+                        </span>
+                    </td>
+                    <td>
+                        <button class="action-btn edit" onclick="toggleSlotStatus(3)" fdprocessedid="h5gbvp">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteSlot(3)" fdprocessedid="gcf7dm">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas" id="toastIcon"></i>
+        <span id="toastMessage"></span>
+    </div>
+</body>
+</html>
