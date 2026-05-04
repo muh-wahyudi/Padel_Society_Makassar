@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Society Makassar - Owner Dashboard</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/owner.css">
+</head>
+<body class="owner-body">
+    <div class="owner-container">
+        <!-- Sidebar -->
+        <aside class="owner-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Padel<span> Society</span> <span class="logo-city">Owner</span></div>
+            </div>
+            
+            <div class="owner-verification-status">
+                <i class="fas fa-check-circle verified"></i>
+                <span>Verified Owner</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="owner-dashboard.html" class="nav-item active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="owner-courts.html" class="nav-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kelola Lapangan</span>
+                </a>
+                <a href="owner-schedule.html" class="nav-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Manajemen Jadwal</span>
+                </a>
+                <a href="owner-bookings.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manajemen Booking</span>
+                </a>
+                <a href="owner-earnings.html" class="nav-item">
+                    <i class="fas fa-wallet"></i>
+                    <span>Pendapatan</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="owner-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <div class="owner-name">Admin Padel</div>
+                        <div class="owner-role">Owner</div>
+                    </div>
+                </div>
+                <a href="login.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="owner-main">
+            <header class="owner-header">
+                <h1>Dashboard</h1>
+                <div class="header-date">
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Kamis, 16 April 2026</span>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e3f2fd;">
+                        <i class="fas fa-calendar-check" style="color: var(--primary);"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Booking</div>
+                        <div class="stat-value">2</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #e8f5e9;">
+                        <i class="fas fa-map-marker-alt" style="color: #2ecc71;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Lapangan</div>
+                        <div class="stat-value">1</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fff3e0;">
+                        <i class="fas fa-wallet" style="color: #f39c12;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Total Pendapatan</div>
+                        <div class="stat-value">Rp 300.000</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fce4e4;">
+                        <i class="fas fa-users" style="color: #e74c3c;"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-label">Pelanggan</div>
+                        <div class="stat-value">1</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Bookings -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2>Booking Terbaru</h2>
+                    <a href="owner-bookings.html" class="view-all">Lihat Semua <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="booking-table">
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Lapangan</th>
+                                <th>Tanggal</th>
+                                <th>Jam</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>PSM260413-679</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>11 April 2026</td>
+                                <td>19:00 - 20:00</td>
+                                <td><span class="status-badge status-completed">Selesai</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>PSM260413-833</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>11 April 2026</td>
+                                <td>20:00 - 21:00</td>
+                                <td><span class="status-badge status-completed">Selesai</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <h3>Aksi Cepat</h3>
+                <div class="actions-grid">
+                    <a href="owner-courts.html" class="action-card">
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Tambah Lapangan</span>
+                    </a>
+                    <a href="owner-schedule.html" class="action-card">
+                        <i class="fas fa-clock"></i>
+                        <span>Atur Jadwal</span>
+                    </a>
+                    <a href="owner-earnings.html" class="action-card">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Lihat Laporan</span>
+                    </a>
+                    <a href="owner-bookings.html" class="action-card">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Kelola Booking</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
