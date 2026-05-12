@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Society Makassar - Pendapatan</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a4c7a;
+            --primary-light: #e2f0fa;
+            --neon: #c5f277;
+            --gray-bg: #f4f7f9;
+            --text: #1e2b37;
+            --border: #e2e8f0;
+            --success: #2ecc71;
+            --error: #e74c3c;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8fafc;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Owner Layout */
+        .owner-body {
+            background: #f8fafc;
+        }
+        
+        .owner-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar */
+        .owner-sidebar {
+            width: 280px;
+            background: white;
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 2rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .sidebar-header .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .sidebar-header .logo span {
+            font-weight: 300;
+            color: #1e2b37;
+        }
+        
+        .owner-verification-status {
+            padding: 1rem 1.5rem;
+            margin: 0 1rem 1rem;
+            background: var(--gray-bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .owner-verification-status i.verified {
+            color: var(--success);
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 1.5rem 0;
+        }
+        
+        .sidebar-nav .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            color: #5f6c7a;
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+        }
+        
+        .sidebar-nav .nav-item i {
+            width: 24px;
+            font-size: 1.2rem;
+        }
+        
+        .sidebar-nav .nav-item:hover {
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+        
+        .sidebar-nav .nav-item.active {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .sidebar-nav .nav-item.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--primary);
+        }
+        
+        .sidebar-footer {
+            padding: 1.5rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        .owner-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .owner-info i {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .owner-name {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .owner-role {
+            font-size: 0.85rem;
+            color: #5f6c7a;
+        }
+        
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 1rem;
+            background: #fee;
+            color: var(--error);
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        
+        .logout-btn:hover {
+            background: #fdd;
+        }
+        
+        /* Main Content */
+        .owner-main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 2rem;
+        }
+        
+        .owner-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .owner-header h1 {
+            font-size: 2rem;
+            color: var(--text);
+            margin: 0;
+        }
+        
+        .header-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 0.8rem 1.5rem;
+            border-radius: 60px;
+            border: 1px solid var(--border);
+            font-family: 'Inter', sans-serif;
+            background: white;
+            min-width: 150px;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+        
+        /* Button Styles */
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+        
+        .btn-outline:hover {
+            background: var(--gray-bg);
+        }
+        
+        /* Dashboard Sections */
+        .dashboard-section {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-header h2 {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .section-header h2 i {
+            color: var(--primary);
+        }
+        
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+        }
+        
+        .stat-card.large {
+            grid-column: span 2;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+        }
+        
+        .stat-label {
+            color: #5f6c7a;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-comparison {
+            font-size: 0.8rem;
+            color: var(--success);
+        }
+        
+        /* Chart Container */
+        .chart-container {
+            background: white;
+            border-radius: 16px;
+            padding: 1rem;
+            min-height: 350px;
+            position: relative;
+        }
+        
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        .booking-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .booking-table th {
+            text-align: left;
+            padding: 1rem;
+            background: var(--gray-bg);
+            color: #5f6c7a;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .booking-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+        
+        .booking-table tr:hover td {
+            background: var(--gray-bg);
+        }
+        
+        .status-badge {
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .status-badge.completed {
+            background: #e3f2fd;
+            color: var(--primary);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-muted {
+            color: #95a5a6;
+        }
+        
+        /* Export Actions */
+        .export-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .owner-sidebar {
+                width: 80px;
+            }
+            
+            .sidebar-header .logo span,
+            .sidebar-nav .nav-item span,
+            .owner-info div,
+            .logout-btn span,
+            .owner-verification-status span {
+                display: none;
+            }
+            
+            .sidebar-nav .nav-item {
+                justify-content: center;
+                padding: 1rem;
+            }
+            
+            .sidebar-nav .nav-item i {
+                margin: 0;
+            }
+            
+            .owner-main {
+                margin-left: 80px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .owner-main {
+                padding: 1rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-card.large {
+                grid-column: span 1;
+            }
+            
+            .header-controls {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .filter-select {
+                width: 100%;
+            }
+            
+            .export-actions {
+                flex-direction: column;
+            }
+            
+            .export-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="owner-body">
+    <div class="owner-container">
+        <!-- Sidebar -->
+        <aside class="owner-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Padel<span> Society</span> <span class="logo-city">Owner</span></div>
+            </div>
+            
+            <div class="owner-verification-status">
+                <i class="fas fa-check-circle verified"></i>
+                <span>Verified Owner</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="owner-dashboard.html" class="nav-item">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="owner-courts.html" class="nav-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Kelola Lapangan</span>
+                </a>
+                <a href="owner-schedule.html" class="nav-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Manajemen Jadwal</span>
+                </a>
+                <a href="owner-bookings.html" class="nav-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <span>Manajemen Booking</span>
+                </a>
+                <a href="owner-earnings.html" class="nav-item active">
+                    <i class="fas fa-wallet"></i>
+                    <span>Pendapatan</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="owner-info">
+                    <i class="fas fa-user-circle"></i>
+                    <div>
+                        <div class="owner-name">Admin Padel</div>
+                        <div class="owner-role">Owner</div>
+                    </div>
+                </div>
+                <a href="login.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="owner-main">
+            <header class="owner-header">
+                <h1>Pendapatan</h1>
+                <div class="header-controls">
+                    <select class="filter-select" id="periodFilter">
+                        <option value="week" selected>Minggu Ini</option>
+                        <option value="month">Bulan Ini</option>
+                        <option value="year">Tahun Ini</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Earnings Summary -->
+            <div class="stats-grid">
+                <div class="stat-card large">
+                    <div class="stat-value">Rp 2.170.000</div>
+                    <div class="stat-label">Total Pendapatan</div>
+                    <div class="stat-comparison">+15% dari periode sebelumnya</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value">7</div>
+                    <div class="stat-label">Total Transaksi</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-value">Rp 310.000</div>
+                    <div class="stat-label">Rata-rata per Transaksi</div>
+                </div>
+            </div>
+
+            <!-- Earnings Chart (Grafik dari gambar) -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-chart-line"></i> Grafik Pendapatan</h2>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="earningsChart" width="800" height="300"></canvas>
+                </div>
+            </div>
+
+            <!-- Transactions Table -->
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-history"></i> Riwayat Transaksi</h2>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="booking-table">
+                        <thead>
+                            <tr>
+                                <th>Tanggal</th>
+                                <th>Booking ID</th>
+                                <th>Customer</th>
+                                <th>Lapangan</th>
+                                <th>Jam</th>
+                                <th>Pembayaran</th>
+                                <th>Status</th>
+                                <th>Nominal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>17 Mar 2026</td>
+                                <td><strong>PSM260317-903</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>19:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 140.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>18 Mar 2026</td>
+                                <td><strong>PSM260318-782</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>11:00</td>
+                                <td>QRIS</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>18 Mar 2026</td>
+                                <td><strong>PSM260318-801</strong></td>
+                                <td>User2</td>
+                                <td>Lapangan A</td>
+                                <td>12:00</td>
+                                <td>E-Wallet</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>18 Mar 2026</td>
+                                <td><strong>PSM260318-802</strong></td>
+                                <td>User3</td>
+                                <td>Lapangan B</td>
+                                <td>13:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 180.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>21 Mar 2026</td>
+                                <td><strong>PSM260321-456</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>19:00</td>
+                                <td>QRIS</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>8 Apr 2026</td>
+                                <td><strong>PSM260408-234</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>19:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>8 Apr 2026</td>
+                                <td><strong>PSM260408-235</strong></td>
+                                <td>User2</td>
+                                <td>Lapangan A</td>
+                                <td>20:00</td>
+                                <td>E-Wallet</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>8 Apr 2026</td>
+                                <td><strong>PSM260408-236</strong></td>
+                                <td>User3</td>
+                                <td>Lapangan B</td>
+                                <td>21:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 180.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>8 Apr 2026</td>
+                                <td><strong>PSM260408-237</strong></td>
+                                <td>User4</td>
+                                <td>Lapangan B</td>
+                                <td>22:00</td>
+                                <td>QRIS</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 140.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>12 Apr 2026</td>
+                                <td><strong>PSM260412-567</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>19:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 160.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>13 Apr 2026</td>
+                                <td><strong>PSM260413-679</strong></td>
+                                <td>User1</td>
+                                <td>Lapangan A</td>
+                                <td>19:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>13 Apr 2026</td>
+                                <td><strong>PSM260413-680</strong></td>
+                                <td>User2</td>
+                                <td>Lapangan A</td>
+                                <td>20:00</td>
+                                <td>QRIS</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 150.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>13 Apr 2026</td>
+                                <td><strong>PSM260413-681</strong></td>
+                                <td>User3</td>
+                                <td>Lapangan B</td>
+                                <td>21:00</td>
+                                <td>E-Wallet</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 180.000</strong></td>
+                            </tr>
+                            <tr>
+                                <td>13 Apr 2026</td>
+                                <td><strong>PSM260413-682</strong></td>
+                                <td>User4</td>
+                                <td>Lapangan B</td>
+                                <td>22:00</td>
+                                <td>Transfer Bank</td>
+                                <td><span class="status-badge completed">Completed</span></td>
+                                <td><strong>Rp 140.000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Export Buttons -->
+                <div class="export-actions">
+                    <button class="btn btn-outline">
+                        <i class="fas fa-file-excel"></i> Export Excel
+                    </button>
+                    <button class="btn btn-outline">
+                        <i class="fas fa-file-pdf"></i> Export PDF
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Grafik Pendapatan dengan Chart.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('earningsChart').getContext('2d');
+            
+            // Data dari gambar: Date dan Value (Rp)
+            const labels = ['17 Mar', '18 Mar', '21 Mar', '8 Apr', '12 Apr', '13 Apr'];
+            const values = [140000, 480000, 150000, 620000, 160000, 620000];
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Pendapatan (Rp)',
+                        data: values,
+                        borderColor: '#0a4c7a',
+                        backgroundColor: 'rgba(10,76,122,0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#0a4c7a',
+                        pointBorderColor: 'white',
+                        pointBorderWidth: 2,
+                        pointRadius: 6,
+                        pointHoverRadius: 8,
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return 'Rp ' + context.raw.toLocaleString('id-ID');
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return 'Rp ' + value.toLocaleString('id-ID');
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Pendapatan (Rp)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Tanggal'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+        <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
